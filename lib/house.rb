@@ -37,9 +37,22 @@ class House
   end
 
   def rooms_sorted_by_area
-    sizes =@rooms.sort_by do |room|
+    sizes = @rooms.sort_by do |room|
       room.area
     end
     sizes.reverse
+  end
+
+  def rooms_by_category
+    rooms = {}
+    categories = []
+    @rooms.each do |room|
+      categories << room.category
+    end
+
+    categories.find_all do |cat|
+      cat = room.category
+      rooms[cat] = rooms_from_category(cat)
+    end
   end
 end
