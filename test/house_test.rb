@@ -76,7 +76,13 @@ class HouseTest < Minitest::Test
     @house.add_room(room_2)
     @house.add_room(room_3)
     @house.add_room(room_4)
-
+    
     assert_equal 210.53, @house.price_per_square_foot
+
+    room_5 = Room.new(:kitchen, 10, 20)
+    @house.add_room(room_5)
+
+    assert_equal (400000.00/2100).round(2), @house.price_per_square_foot
   end
+
 end
