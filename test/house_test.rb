@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require '.lib/house'
+require './lib/house'
+require './lib/room'
 
 class HouseTest < Minitest::Test
 
@@ -29,7 +30,7 @@ class HouseTest < Minitest::Test
     room_2 = Room.new(:bedroom, 11, 15)
     @house.add_room(room_1)
     @house.add_room(room_2)
-
-    assert_equal [Room, Room], @house.rooms
+    
+    assert_equal [room_1, room_2], @house.rooms
   end
 end
