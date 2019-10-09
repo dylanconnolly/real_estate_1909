@@ -26,8 +26,9 @@ class House
   end
 
   def area
-    @rooms.map do |room|
-      room.length * room.width
+    area = @rooms.map do |room|
+      room.area
     end
+    area.inject(:+)
   end
 end
