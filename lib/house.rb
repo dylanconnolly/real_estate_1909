@@ -18,4 +18,16 @@ class House
   def add_room(room_name)
     @rooms << room_name
   end
+
+  def rooms_from_category(category)
+    @rooms.find_all do |room|
+      category == room.category
+    end
+  end
+
+  def area
+    @rooms.map do |room|
+      room.length * room.width
+    end
+  end
 end
